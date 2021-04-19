@@ -1,0 +1,9 @@
+{
+	"name": "P3DataFactoryDimMappings",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "875cbad8-ba5b-45ec-85a9-b946898c1fa4",
+		"tenantId": "76d32854-305b-4e25-a739-cca0d906b9ad"
+	}
+}
