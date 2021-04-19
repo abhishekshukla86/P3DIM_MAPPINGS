@@ -1,0 +1,24 @@
+{
+	"name": "DimICD10ProcedureCodes",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SinkDimICD10ProcedureCodes",
+						"type": "DatasetReference"
+					},
+					"name": "SRCDimICD10ProcedureCodes"
+				}
+			],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\tCode as string,\n\t\tDescription as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCDimICD10ProcedureCodes\nSRCDimICD10ProcedureCodes sink(skipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+		}
+	}
+}
