@@ -18,55 +18,6 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "Code",
-				"type": "String"
-			},
-			{
-				"name": "Description",
-				"type": "String"
-			},
-			{
-				"name": "Prop_2",
-				"type": "String"
-			},
-			{
-				"name": "Prop_3",
-				"type": "String"
-			},
-			{
-				"name": "Prop_4",
-				"type": "String"
-			},
-			{
-				"name": "Prop_5",
-				"type": "String"
-			},
-			{
-				"name": "Prop_6",
-				"type": "String"
-			},
-			{
-				"name": "Prop_7",
-				"type": "String"
-			},
-			{
-				"name": "Prop_8",
-				"type": "String"
-			},
-			{
-				"name": "Prop_9",
-				"type": "String"
-			},
-			{
-				"name": "Prop_10",
-				"type": "String"
-			},
-			{
-				"name": "Prop_11",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
