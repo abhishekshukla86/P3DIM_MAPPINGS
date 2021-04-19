@@ -1,0 +1,32 @@
+{
+	"name": "DimCPTCode",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "CPT Codes.csv",
+				"container": "dimmapping"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Code",
+				"type": "String"
+			},
+			{
+				"name": "Description",
+				"type": "String"
+			}
+		]
+	}
+}

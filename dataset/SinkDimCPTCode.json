@@ -1,0 +1,84 @@
+{
+	"name": "SinkDimCPTCode",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Sink_Azure_DIM_Mapping_DB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CPTCode_KEY",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CPT_Code",
+				"type": "varchar"
+			},
+			{
+				"name": "CPTCode_Desc",
+				"type": "varchar"
+			},
+			{
+				"name": "CreationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UpdationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "RecordCreationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RecordUpdationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ph_varchar1",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_varchar2",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_Decimal1",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_Decimal2",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_datetime1",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ph_datetime2",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DimCPTCodes"
+		}
+	}
+}
