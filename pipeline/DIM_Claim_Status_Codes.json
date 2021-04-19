@@ -1,9 +1,9 @@
 {
-	"name": "DIM_MAPPINGS",
+	"name": "DIM_Claim_Status_Codes",
 	"properties": {
 		"activities": [
 			{
-				"name": "Dim_mappings",
+				"name": "Dim_claim_status_codes",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
@@ -41,6 +41,54 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "DimDiagnosisGroupCodes",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "DimIcd10 DiagnosisCodes",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DimICD10DiagnosisCodes",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "DimICD10ProcedureCodes",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DimICD10ProcedureCodes",
 						"type": "DataFlowReference"
 					},
 					"compute": {
