@@ -1,0 +1,20 @@
+{
+	"name": "DimDiagnosisGroupCodes",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DiagnosisGroupCodes",
+						"type": "DatasetReference"
+					},
+					"name": "SRCDiagnosisGroupCodes"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"script": "source(output(\n\t\t{Group Code} as string,\n\t\tDescription as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCDiagnosisGroupCodes"
+		}
+	}
+}

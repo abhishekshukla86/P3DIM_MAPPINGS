@@ -1,0 +1,32 @@
+{
+	"name": "DiagnosisGroupCodes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "icd10 Diagnosis Group Codes.csv",
+				"container": "dimmapping"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Group Code",
+				"type": "String"
+			},
+			{
+				"name": "Description",
+				"type": "String"
+			}
+		]
+	}
+}
