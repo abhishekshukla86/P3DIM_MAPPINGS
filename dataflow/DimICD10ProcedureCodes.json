@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "SinkDimICD10ProcedureCodes",
+						"referenceName": "CSV_ICD10ProcedureCodes",
 						"type": "DatasetReference"
 					},
 					"name": "SRCDimICD10ProcedureCodes"
