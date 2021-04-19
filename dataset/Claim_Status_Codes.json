@@ -1,0 +1,21 @@
+{
+	"name": "Claim_Status_Codes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Medical(Encounter) Claim Status",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Claim Status Codes.xlsx",
+				"container": "dimmapping"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	}
+}
