@@ -1,0 +1,92 @@
+{
+	"name": "Sink_MDCCodes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Sink_Azure_DIM_Mapping_DB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "MDC_Code_KEY",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MDC_Code",
+				"type": "varchar"
+			},
+			{
+				"name": "MDC_Code_Desc",
+				"type": "varchar"
+			},
+			{
+				"name": "Start_DRG_Code",
+				"type": "varchar"
+			},
+			{
+				"name": "End_DRG_Code",
+				"type": "varchar"
+			},
+			{
+				"name": "CreationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UpdationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "RecordCreationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RecordUpdationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ph_varchar1",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_varchar2",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_Decimal1",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_Decimal2",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_datetime1",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ph_datetime2",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DimMDCCodes"
+		}
+	}
+}
