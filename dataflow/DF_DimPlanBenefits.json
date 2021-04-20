@@ -1,0 +1,28 @@
+{
+	"name": "DF_DimPlanBenefits",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SRC_PlanBenefits",
+						"type": "DatasetReference"
+					},
+					"name": "SRCPlanBenefits"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TR_DimPlanBenefits",
+						"type": "DatasetReference"
+					},
+					"name": "TRDimPlanBenefits"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\tPlan_Benefit_ID as string,\n\t\tPlan_Benefit_Start_Date as date 'dd-MM-yyyy',\n\t\tPlan_Benefit_End_Date as date 'dd-MM-yyyy',\n\t\tPlan_Benefit_Description as string,\n\t\t{Line_Of_Business                  } as boolean,\n\t\t{Plan_Product_Code                 } as string,\n\t\tBenefit_Plan_Type_Code as short,\n\t\tPopulation_Category_Code as short\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCPlanBenefits\nSRCPlanBenefits sink(input(\n\t\tPlanBenefits_Key as integer,\n\t\tPlan_Benefit_ID as string,\n\t\tPlan_Benefit_Start_Date as date,\n\t\tPlan_Benefit_End_Date as date,\n\t\tPlan_Benefit_Desp as string,\n\t\tLineofBusinessCodeCatCode as string,\n\t\tPlan_Product_Code as string,\n\t\tBenefitPlanTypeCode as string,\n\t\tPopulationCatCode as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tPlan_Benefit_ID,\n\t\tPlan_Benefit_Start_Date,\n\t\tPlan_Benefit_End_Date,\n\t\tPlan_Benefit_Desp = Plan_Benefit_Description,\n\t\tLineofBusinessCodeCatCode = {Line_Of_Business                  },\n\t\tPlan_Product_Code = {Plan_Product_Code                 },\n\t\tBenefitPlanTypeCode = Benefit_Plan_Type_Code,\n\t\tPopulationCatCode = Population_Category_Code\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimPlanBenefits"
+		}
+	}
+}
