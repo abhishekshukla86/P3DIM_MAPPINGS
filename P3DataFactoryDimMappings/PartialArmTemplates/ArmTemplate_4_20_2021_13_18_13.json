@@ -6,14 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "P3DataFactoryDimMappings"
-		},
-		"AzureBlobStorage_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage'"
-		},
-		"Sink_Azure_DIM_Mapping_DB_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'Sink_Azure_DIM_Mapping_DB'"
 		}
 	},
 	"variables": {
@@ -41,14 +33,8 @@
 						"typeProperties": {
 							"dataflow": {
 								"referenceName": "DIM_claim_status_code",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"DimClaimStatusCode": {},
-									"ClaimStatusCode": {}
-								}
+								"type": "DataFlowReference"
 							},
-							"staging": {},
 							"compute": {
 								"coreCount": 8,
 								"computeType": "General"
@@ -71,14 +57,8 @@
 						"typeProperties": {
 							"dataflow": {
 								"referenceName": "DimDiagnosisGroupCodes",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"SRCDiagnosisGroupCodes": {},
-									"SinkDiagnosisGroupCodes": {}
-								}
+								"type": "DataFlowReference"
 							},
-							"staging": {},
 							"compute": {
 								"coreCount": 8,
 								"computeType": "General"
@@ -101,14 +81,8 @@
 						"typeProperties": {
 							"dataflow": {
 								"referenceName": "DimICD10DiagnosisCodes",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"source1": {},
-									"Sinkicd10DiagnosisCodes": {}
-								}
+								"type": "DataFlowReference"
 							},
-							"staging": {},
 							"compute": {
 								"coreCount": 8,
 								"computeType": "General"
@@ -131,14 +105,8 @@
 						"typeProperties": {
 							"dataflow": {
 								"referenceName": "DimICD10ProcedureCodes",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"SRCDimICD10ProcedureCodes": {},
-									"SinkDimICD10ProcedureCodes": {}
-								}
+								"type": "DataFlowReference"
 							},
-							"staging": {},
 							"compute": {
 								"coreCount": 8,
 								"computeType": "General"
@@ -161,14 +129,8 @@
 						"typeProperties": {
 							"dataflow": {
 								"referenceName": "DIMPlaceOfService",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"source1": {},
-									"PlaceOfService": {}
-								}
+								"type": "DataFlowReference"
 							},
-							"staging": {},
 							"compute": {
 								"coreCount": 8,
 								"computeType": "General"
@@ -191,14 +153,8 @@
 						"typeProperties": {
 							"dataflow": {
 								"referenceName": "DimHCPCSCode",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"source1": {},
-									"sinkDimHCPCSCode": {}
-								}
+								"type": "DataFlowReference"
 							},
-							"staging": {},
 							"compute": {
 								"coreCount": 8,
 								"computeType": "General"
@@ -221,14 +177,8 @@
 						"typeProperties": {
 							"dataflow": {
 								"referenceName": "DimCPTCode",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"source1": {},
-									"DimCPTCode": {}
-								}
+								"type": "DataFlowReference"
 							},
-							"staging": {},
 							"compute": {
 								"coreCount": 8,
 								"computeType": "General"
@@ -251,14 +201,8 @@
 						"typeProperties": {
 							"dataflow": {
 								"referenceName": "DimDRGCodes",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"SourceDimDRGCodes": {},
-									"DimDRGCodes": {}
-								}
+								"type": "DataFlowReference"
 							},
-							"staging": {},
 							"compute": {
 								"coreCount": 8,
 								"computeType": "General"
@@ -270,8 +214,6 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/DIM_claim_status_code')]",
-				"[concat(variables('factoryId'), '/dataflows/DimDiagnosisGroupCodes')]",
 				"[concat(variables('factoryId'), '/dataflows/DimICD10DiagnosisCodes')]",
 				"[concat(variables('factoryId'), '/dataflows/DimICD10ProcedureCodes')]",
 				"[concat(variables('factoryId'), '/dataflows/DIMPlaceOfService')]",
@@ -301,14 +243,8 @@
 						"typeProperties": {
 							"dataflow": {
 								"referenceName": "DimHCPCSCode",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"source1": {},
-									"sinkDimHCPCSCode": {}
-								}
+								"type": "DataFlowReference"
 							},
-							"staging": {},
 							"compute": {
 								"coreCount": 8,
 								"computeType": "General"
@@ -344,14 +280,8 @@
 						"typeProperties": {
 							"dataflow": {
 								"referenceName": "DimICD10ProcedureCodes",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"SRCDimICD10ProcedureCodes": {},
-									"SinkDimICD10ProcedureCodes": {}
-								}
+								"type": "DataFlowReference"
 							},
-							"staging": {},
 							"compute": {
 								"coreCount": 8,
 								"computeType": "General"
@@ -399,170 +329,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ClaimStatusCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "Claim_Status_KEY",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "Claim_Status_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "Claim_Status_Code_Desc",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimClaimStatusCodes"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Sink_Azure_DIM_Mapping_DB')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Claim_Status_Codes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Excel",
-				"typeProperties": {
-					"sheetName": "Medical(Encounter) Claim Status",
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "Claim Status Codes.xlsx",
-						"container": "dimmapping"
-					},
-					"firstRowAsHeader": true
-				},
-				"schema": [
-					{
-						"name": "Value",
-						"type": "String"
-					},
-					{
-						"name": "Description",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DiagnosisGroupCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "icd10 Diagnosis Group Codes.csv",
-						"container": "dimmapping"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Group Code",
-						"type": "String"
-					},
-					{
-						"name": "Description",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DimCPTCode')]",
@@ -597,9 +364,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DimHCPCSCode')]",
@@ -634,98 +399,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DimICD10ProcedureCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "ICD10ProcedureCode_Key",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ICD10Procedure_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "ICD10ProcedureCode_Desc",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimICD10ProcedureCodes"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Sink_Azure_DIM_Mapping_DB')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DimPlaceOfServiceCodes')]",
@@ -760,9 +434,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SINKDimDRGCodes')]",
@@ -849,9 +521,7 @@
 					"table": "DimDRGCodes"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Sink_Azure_DIM_Mapping_DB')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SINK_DimHCPCSCode')]",
@@ -938,9 +608,7 @@
 					"table": "DimHCPCSCode"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Sink_Azure_DIM_Mapping_DB')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SRCDimDRGCodes')]",
@@ -975,135 +643,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SRC_DimICD10DiagnosisCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "icd10 Diagnosis Codes.csv",
-						"container": "dimmapping"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Code",
-						"type": "String"
-					},
-					{
-						"name": "Description",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SinkDiagnosisGroupCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "ICD10DiagnosisGroupCode_KEY",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ICD10DiagnosisGroup_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "ICD10DiagnosisGroupCode_Desc",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimICD10DiagnosisGroupCodes"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Sink_Azure_DIM_Mapping_DB')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SinkDimCPTCode')]",
@@ -1190,44 +730,7 @@
 					"table": "DimCPTCodes"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Sink_Azure_DIM_Mapping_DB')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SinkDimICD10ProcedureCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Excel",
-				"typeProperties": {
-					"sheetName": "Sheet2",
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "icd10 Procedure Codes.xlsx",
-						"container": "dimmapping"
-					},
-					"firstRowAsHeader": true
-				},
-				"schema": [
-					{
-						"name": "Code",
-						"type": "String"
-					},
-					{
-						"name": "Description",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SinkPlaceOfService')]",
@@ -1314,127 +817,6 @@
 					"table": "DimPlaceofService"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Sink_Azure_DIM_Mapping_DB')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Sink_icd10DiagnosisCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "ICD10DiagnosisCode_Key",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ICD10Diagnosis_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "ICD10DiagnosisCode_Desc",
-						"type": "varchar"
-					},
-					{
-						"name": "ICD10DiagnosisGroup_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimICD10DiagnosisCodes"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Sink_Azure_DIM_Mapping_DB')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Sink_Azure_DIM_Mapping_DB')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('Sink_Azure_DIM_Mapping_DB_connectionString')]"
-				}
-			},
 			"dependsOn": []
 		},
 		{
@@ -1469,40 +851,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DimPlaceOfServiceCodes')]",
 				"[concat(variables('factoryId'), '/datasets/SinkPlaceOfService')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DIM_claim_status_code')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "Claim_Status_Codes",
-								"type": "DatasetReference"
-							},
-							"name": "DimClaimStatusCode"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "ClaimStatusCodes",
-								"type": "DatasetReference"
-							},
-							"name": "ClaimStatusCode"
-						}
-					],
-					"transformations": [],
-					"script": "source(output(\n\t\tValue as string,\n\t\tDescription as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> DimClaimStatusCode\nDimClaimStatusCode sink(input(\n\t\tClaim_Status_KEY as integer,\n\t\tClaim_Status_Code as string,\n\t\tClaim_Status_Code_Desc as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tClaim_Status_Code = Value,\n\t\tClaim_Status_Code_Desc = Description\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> ClaimStatusCode"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Claim_Status_Codes')]",
-				"[concat(variables('factoryId'), '/datasets/ClaimStatusCodes')]"
 			]
 		},
 		{
@@ -1574,40 +922,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DimDiagnosisGroupCodes')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "DiagnosisGroupCodes",
-								"type": "DatasetReference"
-							},
-							"name": "SRCDiagnosisGroupCodes"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "SinkDiagnosisGroupCodes",
-								"type": "DatasetReference"
-							},
-							"name": "SinkDiagnosisGroupCodes"
-						}
-					],
-					"transformations": [],
-					"script": "source(output(\n\t\t{Group Code} as string,\n\t\tDescription as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCDiagnosisGroupCodes\nSRCDiagnosisGroupCodes sink(input(\n\t\tICD10DiagnosisGroupCode_KEY as integer,\n\t\tICD10DiagnosisGroup_Code as string,\n\t\tICD10DiagnosisGroupCode_Desc as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tICD10DiagnosisGroup_Code = {Group Code},\n\t\tICD10DiagnosisGroupCode_Desc = Description\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> SinkDiagnosisGroupCodes"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DiagnosisGroupCodes')]",
-				"[concat(variables('factoryId'), '/datasets/SinkDiagnosisGroupCodes')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/DimHCPCSCode')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
@@ -1670,10 +984,7 @@
 					"script": "source(output(\n\t\tCode as string,\n\t\tDescription as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 sink(input(\n\t\tICD10DiagnosisCode_Key as integer,\n\t\tICD10Diagnosis_Code as string,\n\t\tICD10DiagnosisCode_Desc as string,\n\t\tICD10DiagnosisGroup_Code as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tICD10Diagnosis_Code = Code,\n\t\tICD10DiagnosisCode_Desc = Description\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> Sinkicd10DiagnosisCodes"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SRC_DimICD10DiagnosisCodes')]",
-				"[concat(variables('factoryId'), '/datasets/Sink_icd10DiagnosisCodes')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DimICD10ProcedureCodes')]",
@@ -1705,8 +1016,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/CSV_ICD10ProcedureCodes')]",
-				"[concat(variables('factoryId'), '/datasets/DimICD10ProcedureCodes')]"
+				"[concat(variables('factoryId'), '/datasets/CSV_ICD10ProcedureCodes')]"
 			]
 		}
 	]
