@@ -1,0 +1,36 @@
+{
+	"name": "SRC_PopulationCategoryCodes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SRC_PopulationCategoryCodes.csv",
+				"container": "kamlendublob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Code",
+				"type": "String"
+			},
+			{
+				"name": "Description",
+				"type": "String"
+			},
+			{
+				"name": "LOB Sub-Category",
+				"type": "String"
+			}
+		]
+	}
+}
