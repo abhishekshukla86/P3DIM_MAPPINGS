@@ -1,0 +1,108 @@
+{
+	"name": "TR_DimPlanBenefits",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Sink_Azure_DIM_Mapping_DB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "PlanBenefits_Key",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Plan_Benefit_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "Plan_Benefit_Start_Date",
+				"type": "date"
+			},
+			{
+				"name": "Plan_Benefit_End_Date",
+				"type": "date"
+			},
+			{
+				"name": "Plan_Benefit_Desp",
+				"type": "varchar"
+			},
+			{
+				"name": "LineofBusinessCodeCatCode",
+				"type": "varchar"
+			},
+			{
+				"name": "Plan_Product_Code",
+				"type": "varchar"
+			},
+			{
+				"name": "BenefitPlanTypeCode",
+				"type": "varchar"
+			},
+			{
+				"name": "PopulationCatCode",
+				"type": "varchar"
+			},
+			{
+				"name": "CreationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UpdationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "RecordCreationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RecordUpdationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ph_varchar1",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_varchar2",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_Decimal1",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_Decimal2",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_datetime1",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ph_datetime2",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DimPlanBenefits"
+		}
+	}
+}
