@@ -1,0 +1,28 @@
+{
+	"name": "DF_DimLineOfBusinessSubCategoryCode",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SRC_LineOfBusinessSubCategoryCode",
+						"type": "DatasetReference"
+					},
+					"name": "SRCLineOfBusinessSubCategoryCode"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TR_DimLineofBusinessCodeSubCatCode",
+						"type": "DatasetReference"
+					},
+					"name": "TRDimLineOfBusinessSubCategoryCode"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\tCode as string,\n\t\tDescription as string,\n\t\tLOBCategory as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCLineOfBusinessSubCategoryCode\nSRCLineOfBusinessSubCategoryCode sink(input(\n\t\tLineofBusinessCodeSubCatCode_Key as integer,\n\t\tLineofBusinessCodeSubCatCode as string,\n\t\tLineofBusinessCodeSubCatCodeDesc as string,\n\t\tLineofBusinessCodeCatCode as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tLineofBusinessCodeSubCatCode = Code,\n\t\tLineofBusinessCodeSubCatCodeDesc = Description,\n\t\tLineofBusinessCodeCatCode = LOBCategory\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimLineOfBusinessSubCategoryCode"
+		}
+	}
+}
