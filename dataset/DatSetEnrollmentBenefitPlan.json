@@ -1,0 +1,40 @@
+{
+	"name": "DatSetEnrollmentBenefitPlan",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SRC_Enrollment_Benefit_Plan.csv",
+				"container": "dimmapping"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Enrollment_Benefit_Plan_ID ",
+				"type": "String"
+			},
+			{
+				"name": "Enrollment_Contract_ID",
+				"type": "String"
+			},
+			{
+				"name": "Plan_ID",
+				"type": "String"
+			},
+			{
+				"name": "Plan_Benefit_ID",
+				"type": "String"
+			}
+		]
+	}
+}

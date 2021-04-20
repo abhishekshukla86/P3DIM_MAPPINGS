@@ -1,0 +1,28 @@
+{
+	"name": "DimEnrollmentBenefitPlan",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DatSetEnrollmentBenefitPlan",
+						"type": "DatasetReference"
+					},
+					"name": "SourceEnrollmentBenefitPlan"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Sink_DimEnrollmentBenefitPlan",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\t{Enrollment_Benefit_Plan_ID } as string,\n\t\tEnrollment_Contract_ID as string,\n\t\tPlan_ID as string,\n\t\tPlan_Benefit_ID as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SourceEnrollmentBenefitPlan\nSourceEnrollmentBenefitPlan sink(input(\n\t\tEnrollment_Benefit_Plan_key as integer,\n\t\tEnrollment_Benefit_Plan_ID as string,\n\t\tEnrollment_Benefit_Plan_Desc as string,\n\t\tEnrollment_Contract_ID as string,\n\t\tPlan_ID as string,\n\t\tPlan_Benefit_ID as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tEnrollment_Benefit_Plan_ID = {Enrollment_Benefit_Plan_ID },\n\t\tEnrollment_Contract_ID,\n\t\tPlan_ID,\n\t\tPlan_Benefit_ID\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
+		}
+	}
+}

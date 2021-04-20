@@ -1,0 +1,96 @@
+{
+	"name": "Sink_DimEnrollmentBenefitPlan",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Sink_Azure_DIM_Mapping_DB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Enrollment_Benefit_Plan_key",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Enrollment_Benefit_Plan_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "Enrollment_Benefit_Plan_Desc",
+				"type": "varchar"
+			},
+			{
+				"name": "Enrollment_Contract_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "Plan_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "Plan_Benefit_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "CreationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UpdationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "RecordCreationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RecordUpdationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ph_varchar1",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_varchar2",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_Decimal1",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_Decimal2",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_datetime1",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ph_datetime2",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DimEnrollmentBenefitPlan"
+		}
+	}
+}
