@@ -1,0 +1,20 @@
+{
+	"name": "DF_DIMMDC_Codes",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SRC_MDC_Codes",
+						"type": "DatasetReference"
+					},
+					"name": "SRCMDCCodes"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"script": "source(output(\n\t\t{PK\u0003\u0004\u0014\u0000\u0006\u0000\b\u0000\u0000\u0000!\u0000�+t} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCMDCCodes"
+		}
+	}
+}
