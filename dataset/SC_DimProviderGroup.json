@@ -40,15 +40,23 @@
 				"type": "String"
 			},
 			{
+				"name": "Provider_Group_Zip_Code         ",
+				"type": "String"
+			},
+			{
 				"name": "Provider_Group_City              ",
 				"type": "String"
 			},
 			{
-				"name": "Provider_Group_State_Code        ",
+				"name": "Provider_Group_County_Code        ",
 				"type": "String"
 			},
 			{
-				"name": "Provider_Group_Zip_Code          ",
+				"name": "Provider_Group_State_Code       ",
+				"type": "String"
+			},
+			{
+				"name": "Provider_Group_Country_Code    ",
 				"type": "String"
 			},
 			{
