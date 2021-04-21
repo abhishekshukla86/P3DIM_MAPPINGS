@@ -18,55 +18,55 @@
 		},
 		"schema": [
 			{
-				"name": "Prop_0",
+				"name": "Plan_ID                             ",
 				"type": "String"
 			},
 			{
-				"name": "Prop_1",
+				"name": "Plan_Start_Date",
 				"type": "String"
 			},
 			{
-				"name": "Prop_2",
+				"name": "Plan_End_Date",
 				"type": "String"
 			},
 			{
-				"name": "Prop_3",
+				"name": "Plan_Name_Description            ",
 				"type": "String"
 			},
 			{
-				"name": "Prop_4",
+				"name": "Line_Of_Business                  ",
 				"type": "String"
 			},
 			{
-				"name": "Prop_5",
+				"name": "Plan_Product_Code                 ",
 				"type": "String"
 			},
 			{
-				"name": "Prop_6",
+				"name": "market_Type                       ",
 				"type": "String"
 			},
 			{
-				"name": "Prop_7",
+				"name": "Grandfathered_Plan_Flag              ",
 				"type": "String"
 			},
 			{
-				"name": "Prop_8",
+				"name": "Metal_level                        ",
 				"type": "String"
 			},
 			{
-				"name": "Prop_9",
+				"name": "Acturial_Value ",
 				"type": "String"
 			},
 			{
-				"name": "Prop_10",
+				"name": "Issuer_State",
 				"type": "String"
 			},
 			{
-				"name": "Prop_11",
+				"name": "Issuer_ID",
 				"type": "String"
 			},
 			{
-				"name": "Prop_12",
+				"name": "Plan_On_Off_Exchange_Indicator",
 				"type": "String"
 			}
 		]
