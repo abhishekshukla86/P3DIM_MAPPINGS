@@ -1,0 +1,30 @@
+{
+	"name": "SRC_DimLanguage",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SRC_LanguageCodes_non_dupli.xlsx",
+				"container": "dimmapping"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "ISO 639-2 Code",
+				"type": "String"
+			},
+			{
+				"name": "English name of Language",
+				"type": "String"
+			}
+		]
+	}
+}
