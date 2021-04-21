@@ -13,6 +13,279 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/Sink_HCPCS_Azure')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "HCPCSCode_KEY",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "HCPCS_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "HCPCSCode_Desc",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimHCPCSCode"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Sink_MDCCodes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "MDC_Code_KEY",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "MDC_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "MDC_Code_Desc",
+						"type": "varchar"
+					},
+					{
+						"name": "Start_DRG_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "End_DRG_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimMDCCodes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Sink_icd10DiagnosisCodes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ICD10DiagnosisCode_Key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ICD10Diagnosis_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "ICD10DiagnosisCode_Desc",
+						"type": "varchar"
+					},
+					{
+						"name": "ICD10DiagnosisGroup_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimICD10DiagnosisCodes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/TR_DIMMDC_Codes')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1291,7 +1564,40 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Sink_MDCCodes')]",
+			"name": "[concat(parameters('factoryName'), '/SRC_DimPayer')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "Sheet1",
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SRC_PayerCodes.xlsx",
+						"container": "dimmapping"
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": [
+					{
+						"name": "Value",
+						"type": "String"
+					},
+					{
+						"name": "Description",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Sink_DimPayer')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1303,24 +1609,16 @@
 				"type": "AzureSqlTable",
 				"schema": [
 					{
-						"name": "MDC_Code_KEY",
+						"name": "Payer_KEY",
 						"type": "int",
 						"precision": 10
 					},
 					{
-						"name": "MDC_Code",
+						"name": "Payer_Code",
 						"type": "varchar"
 					},
 					{
-						"name": "MDC_Code_Desc",
-						"type": "varchar"
-					},
-					{
-						"name": "Start_DRG_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "End_DRG_Code",
+						"name": "Payer_Description",
 						"type": "varchar"
 					},
 					{
@@ -1380,173 +1678,43 @@
 				],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "DimMDCCodes"
+					"table": "DimPayer"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DF_ContractCategoryCode')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
+			"name": "[concat(parameters('factoryName'), '/SRC_DimLanguage')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"type": "MappingDataFlow",
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Excel",
 				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "SRC_ContractCategoryCode",
-								"type": "DatasetReference"
-							},
-							"name": "SRCContractCategoryCode"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "DimContractCategoryCode",
-								"type": "DatasetReference"
-							},
-							"name": "TRDimContractCategoryCode"
-						}
-					],
-					"transformations": [],
-					"script": "source(output(\n\t\t{Code } as string,\n\t\tDescription as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCContractCategoryCode\nSRCContractCategoryCode sink(input(\n\t\tContractCategoryCode_Key as integer,\n\t\tContractCategoryCode as string,\n\t\tContractCategoryCodedesC as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tContractCategoryCode = {Code },\n\t\tContractCategoryCodedesC = Description\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimContractCategoryCode"
-				}
+					"sheetName": "Sheet1",
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SRC_LanguageCodes_non_dupli.xlsx",
+						"container": "dimmapping"
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": [
+					{
+						"name": "ISO 639-2 Code",
+						"type": "String"
+					},
+					{
+						"name": "English name of Language",
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DF_DIMMDC_Codes')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "SRC_MDC_Codes",
-								"type": "DatasetReference"
-							},
-							"name": "SRCMDCCodes"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "Sink_MDCCodes",
-								"type": "DatasetReference"
-							},
-							"name": "sink1"
-						}
-					],
-					"transformations": [],
-					"script": "source(output(\n\t\t{PK\u0003\u0004\u0014\u0000\u0006\u0000\b\u0000\u0000\u0000!\u0000�+t} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCMDCCodes\nSRCMDCCodes sink(input(\n\t\tMDC_Code_KEY as integer,\n\t\tMDC_Code as string,\n\t\tMDC_Code_Desc as string,\n\t\tStart_DRG_Code as string,\n\t\tEnd_DRG_Code as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Sink_MDCCodes')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DF_DimBenefitPlantype')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "SRC_BenefitPlantype",
-								"type": "DatasetReference"
-							},
-							"name": "SRCBenefitPlantype"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "TR_DimBenefitPlanType",
-								"type": "DatasetReference"
-							},
-							"name": "TRDimBenefitPlantype"
-						}
-					],
-					"transformations": [],
-					"script": "source(output(\n\t\tCode as string,\n\t\tDescription as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCBenefitPlantype\nSRCBenefitPlantype sink(input(\n\t\tBenefitPlanType_Key as integer,\n\t\tBenefitPlanTypeCode as string,\n\t\tBenefitPlanTypeCodedesp as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tBenefitPlanTypeCode = Code,\n\t\tBenefitPlanTypeCodedesp = Description\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimBenefitPlantype"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/TR_DimBenefitPlanType')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DF_DimEnrollment_contract')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "SRC_Enrollment_contract",
-								"type": "DatasetReference"
-							},
-							"name": "SRCEnrollmentContract"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "TR_DimEnrollmentContract",
-								"type": "DatasetReference"
-							},
-							"name": "TRDimEnrollmentContract"
-						}
-					],
-					"transformations": [],
-					"script": "source(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tskipLines: 1) ~> SRCEnrollmentContract\nSRCEnrollmentContract sink(input(\n\t\tEnrollmentContract_Key as integer,\n\t\tEnrollment_Contract_ID as string,\n\t\tContract_Number as string,\n\t\tContract_Desc as string,\n\t\tContract_Category_Code as string,\n\t\tLineofBusinessCodeCatCode as string,\n\t\tLineofBusinessCodeSubCatCode as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tEnrollment_Contract_ID = Column_1,\n\t\tContract_Number = Column_2,\n\t\tContract_Desc = Column_3,\n\t\tContract_Category_Code = Column_4,\n\t\tLineofBusinessCodeCatCode = Column_5,\n\t\tLineofBusinessCodeSubCatCode = Column_6\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimEnrollmentContract"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/TR_DimEnrollmentContract')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DF_DimLineOfBusinessCategoryCode')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "SRC_LineOfBusinessCategoryCode",
-								"type": "DatasetReference"
-							},
-							"name": "SRCLineOfBusinessCategoryCode"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "TR_DimLineOfBusinessCategoryCode",
-								"type": "DatasetReference"
-							},
-							"name": "TRDimLineOfBusinessCategoryCode"
-						}
-					],
-					"transformations": [],
-					"script": "source(output(\n\t\tCode as string,\n\t\tDescription as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCLineOfBusinessCategoryCode\nSRCLineOfBusinessCategoryCode sink(input(\n\t\tLineofBusinessCodeCatCode_Key as integer,\n\t\tLineofBusinessCodeCatCode as string,\n\t\tLineofBusinessCodeCatDesc as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tLineofBusinessCodeCatCode = Code,\n\t\tLineofBusinessCodeCatDesc = Description\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimLineOfBusinessCategoryCode"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/TR_DimLineOfBusinessCategoryCode')]"
-			]
 		}
 	]
 }
