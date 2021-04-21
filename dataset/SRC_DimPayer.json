@@ -1,0 +1,30 @@
+{
+	"name": "SRC_DimPayer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SRC_PayerCodes.xlsx",
+				"container": "dimmapping"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "Value",
+				"type": "String"
+			},
+			{
+				"name": "Description",
+				"type": "String"
+			}
+		]
+	}
+}
