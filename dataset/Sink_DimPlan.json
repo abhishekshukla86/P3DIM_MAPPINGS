@@ -1,0 +1,128 @@
+{
+	"name": "Sink_DimPlan",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Sink_Azure_DIM_Mapping_DB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Plan_key",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Plan_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "Plan_Start_Date",
+				"type": "date"
+			},
+			{
+				"name": "Plan_End_Date",
+				"type": "date"
+			},
+			{
+				"name": "Plan_Name_Description",
+				"type": "varchar"
+			},
+			{
+				"name": "LineofBusinessCodeCatCode",
+				"type": "varchar"
+			},
+			{
+				"name": "Plan_Product_Code",
+				"type": "varchar"
+			},
+			{
+				"name": "market_Type",
+				"type": "varchar"
+			},
+			{
+				"name": "Grandfathered_Plan_Flag",
+				"type": "char"
+			},
+			{
+				"name": "Metal_level",
+				"type": "varchar"
+			},
+			{
+				"name": "Acturial_Value",
+				"type": "varchar"
+			},
+			{
+				"name": "Issuer_State",
+				"type": "varchar"
+			},
+			{
+				"name": "Issuer_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "Plan_On_Off_Exchange_Indicator",
+				"type": "char"
+			},
+			{
+				"name": "CreationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UpdationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "RecordCreationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RecordUpdationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ph_varchar1",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_varchar2",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_Decimal1",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_Decimal2",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_datetime1",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ph_datetime2",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DimPlan"
+		}
+	}
+}
