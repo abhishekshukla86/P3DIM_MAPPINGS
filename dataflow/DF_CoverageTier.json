@@ -1,0 +1,28 @@
+{
+	"name": "DF_CoverageTier",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SR_CoverageTier",
+						"type": "DatasetReference"
+					},
+					"name": "SRCoverageTier"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TR_DimCoverageTier",
+						"type": "DatasetReference"
+					},
+					"name": "TRCoverageTier"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\tCoverage_Tier as string,\n\t\tCoverage_Tier_Desc as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCoverageTier\nSRCoverageTier sink(input(\n\t\tCoverageTier_KEY as integer,\n\t\tCoverageTier_Code as string,\n\t\tCoverageTier_Desc as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tCoverageTier_Code = Coverage_Tier,\n\t\tCoverageTier_Desc = Coverage_Tier_Desc\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRCoverageTier"
+		}
+	}
+}
