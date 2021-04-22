@@ -1,0 +1,32 @@
+{
+	"name": "SR_MaritalCodes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SRC_MaritalCodes.csv",
+				"container": "kamlendublob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Marital_Status_Code            ",
+				"type": "String"
+			},
+			{
+				"name": "Marital_Status_Code_Desc       ",
+				"type": "String"
+			}
+		]
+	}
+}
