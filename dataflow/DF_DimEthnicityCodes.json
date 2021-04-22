@@ -1,0 +1,28 @@
+{
+	"name": "DF_DimEthnicityCodes",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SR_EthnicityCodes",
+						"type": "DatasetReference"
+					},
+					"name": "SREthnicityCodes"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TR_DimEthnicityCodes",
+						"type": "DatasetReference"
+					},
+					"name": "TREthnicityCodes"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\t{Ethnicity_Code_Desc                 } as string,\n\t\t{Ethnicity_Code                 } as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SREthnicityCodes\nSREthnicityCodes sink(input(\n\t\tEthnicityCode_KEY as integer,\n\t\tEthnicity_Code as string,\n\t\tEthnicityCode_Desc as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tEthnicity_Code = {Ethnicity_Code_Desc                 },\n\t\tEthnicityCode_Desc = {Ethnicity_Code                 }\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TREthnicityCodes"
+		}
+	}
+}
