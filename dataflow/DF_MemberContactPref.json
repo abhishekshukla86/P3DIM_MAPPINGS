@@ -1,0 +1,28 @@
+{
+	"name": "DF_MemberContactPref",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SR_MemberContactPref",
+						"type": "DatasetReference"
+					},
+					"name": "SRMemberContactPref"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TR_DimMemberContactPref",
+						"type": "DatasetReference"
+					},
+					"name": "TRMemberContactPref"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\tMember_Contact_Pref as string,\n\t\tMember_Contact_Pref_Desc as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRMemberContactPref\nSRMemberContactPref sink(input(\n\t\tMemberContactPref_KEY as integer,\n\t\tMemberContactPref_Code as string,\n\t\tMemberContactPref_Desc as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tMemberContactPref_Code = Member_Contact_Pref,\n\t\tMemberContactPref_Desc = Member_Contact_Pref_Desc\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRMemberContactPref"
+		}
+	}
+}
