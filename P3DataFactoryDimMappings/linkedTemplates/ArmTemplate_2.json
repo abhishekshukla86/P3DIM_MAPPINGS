@@ -13,7 +13,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/SRC_SpecialityTaxonomyCodes')]",
+			"name": "[concat(parameters('factoryName'), '/SR_RaceType')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -26,8 +26,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "SRC_SpecialityTaxonomyCodes_CSV3.csv",
-						"container": "dimmapping"
+						"fileName": "SRC_RaceType.csv",
+						"container": "kamlendublob"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -36,35 +36,11 @@
 				},
 				"schema": [
 					{
-						"name": "Speciality_KEY",
+						"name": "Race_Type                      ",
 						"type": "String"
 					},
 					{
-						"name": "CMS SPECIALTY CODE",
-						"type": "String"
-					},
-					{
-						"name": "CMS SPECIALTY DESCRIPTION",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY CODE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY DESCRIPTION TYPE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY DESCRIPTION CLASSIFICATION and SPECIALIZATION",
-						"type": "String"
-					},
-					{
-						"name": "RBI DATA SPECIALITY CODE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TYPE",
+						"name": "Race_Type_Desc               ",
 						"type": "String"
 					}
 				]
@@ -72,7 +48,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SRC_SpecialityTaxonomyCodes_Excel')]",
+			"name": "[concat(parameters('factoryName'), '/SR_SourceSystem')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -81,47 +57,25 @@
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"type": "Excel",
+				"type": "DelimitedText",
 				"typeProperties": {
-					"sheetName": "Sheet1",
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "SRC_SpecialityTaxonomyCodes_EXCEL.xlsx",
-						"container": "dimmapping"
+						"fileName": "SRC_SourceSystem.csv",
+						"container": "kamlendublob"
 					},
-					"firstRowAsHeader": true
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
 				},
 				"schema": [
 					{
-						"name": "Speciality_KEY",
+						"name": "SourceSystem_Code",
 						"type": "String"
 					},
 					{
-						"name": "CMS SPECIALTY CODE",
-						"type": "String"
-					},
-					{
-						"name": "CMS SPECIALTY DESCRIPTION",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY CODE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY DESCRIPTION TYPE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY DESCRIPTION CLASSIFICATION and SPECIALIZATION",
-						"type": "String"
-					},
-					{
-						"name": "RBI DATA SPECIALITY CODE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TYPE",
+						"name": "SourceSystem_Desc",
 						"type": "String"
 					}
 				]
