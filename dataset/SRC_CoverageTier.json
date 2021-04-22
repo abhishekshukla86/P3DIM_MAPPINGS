@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "SRC_CoverageTier.xlsx",
+				"fileName": "SRC_CoverageTier.csv",
 				"container": "kamlendublob"
 			},
 			"columnDelimiter": ",",
