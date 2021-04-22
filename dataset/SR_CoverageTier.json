@@ -1,0 +1,32 @@
+{
+	"name": "SR_CoverageTier",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SRC_CoverageTier.csv",
+				"container": "kamlendublob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Coverage_Tier",
+				"type": "String"
+			},
+			{
+				"name": "Coverage_Tier_Desc",
+				"type": "String"
+			}
+		]
+	}
+}
