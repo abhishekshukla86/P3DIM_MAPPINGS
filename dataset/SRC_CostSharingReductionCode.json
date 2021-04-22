@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "SRC_CostSharingReductionCode.xlsx",
+				"fileName": "SRC_CostSharingReductionCode.csv",
 				"container": "kamlendublob"
 			},
 			"columnDelimiter": ",",
