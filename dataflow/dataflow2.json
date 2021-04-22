@@ -1,0 +1,28 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SR_CostSharingReductionCode",
+						"type": "DatasetReference"
+					},
+					"name": "SRCostSharingReductionCode"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TR_DimCostSharingReductionCode",
+						"type": "DatasetReference"
+					},
+					"name": "TRCostSharingReductionCode"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\tCost_Sharing_Reduction_Code as string,\n\t\tCost_Sharing_Reduction_Code_Desc as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRCostSharingReductionCode\nSRCostSharingReductionCode sink(input(\n\t\tCostSharingReductionCode_KEY as integer,\n\t\tCostSharingReduction_Code as string,\n\t\tCostSharingReductionCode_Desc as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tCostSharingReduction_Code = Cost_Sharing_Reduction_Code,\n\t\tCostSharingReductionCode_Desc = Cost_Sharing_Reduction_Code_Desc\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRCostSharingReductionCode"
+		}
+	}
+}
