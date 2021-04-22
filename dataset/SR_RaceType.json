@@ -1,0 +1,32 @@
+{
+	"name": "SR_RaceType",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SRC_RaceType.csv",
+				"container": "kamlendublob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Race_Type                      ",
+				"type": "String"
+			},
+			{
+				"name": "Race_Type_Desc               ",
+				"type": "String"
+			}
+		]
+	}
+}
