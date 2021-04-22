@@ -1,0 +1,32 @@
+{
+	"name": "SR_SourceSystem",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SRC_SourceSystem.csv",
+				"container": "kamlendublob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SourceSystem_Code",
+				"type": "String"
+			},
+			{
+				"name": "SourceSystem_Desc",
+				"type": "String"
+			}
+		]
+	}
+}
