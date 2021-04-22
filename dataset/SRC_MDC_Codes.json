@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "MDC_Codes.xlsx",
+				"fileName": "MDC_Codes.csv",
 				"container": "kamlendublob"
 			},
 			"columnDelimiter": ",",
