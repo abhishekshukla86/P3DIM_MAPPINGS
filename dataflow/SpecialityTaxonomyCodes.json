@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "SRC_SpecialityTaxonomyCodes",
+						"referenceName": "SRC_SpecialityTaxonomyCodes_Excel",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
