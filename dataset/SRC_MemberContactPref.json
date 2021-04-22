@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "SRC_MemberContactPref.xlsx",
+				"fileName": "SRC_MemberContactPref.csv",
 				"container": "kamlendublob"
 			},
 			"columnDelimiter": ",",
