@@ -1,0 +1,32 @@
+{
+	"name": "SR_MemberContactPref",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SRC_MemberContactPref.csv",
+				"container": "kamlendublob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Member_Contact_Pref",
+				"type": "String"
+			},
+			{
+				"name": "Member_Contact_Pref_Desc",
+				"type": "String"
+			}
+		]
+	}
+}
