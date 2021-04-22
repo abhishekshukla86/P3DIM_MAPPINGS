@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "SRC_SpecialityTaxonomyCodes_CSV2.csv",
+				"fileName": "SRC_SpecialityTaxonomyCodes_CSV3.csv",
 				"container": "dimmapping"
 			},
 			"columnDelimiter": ",",
