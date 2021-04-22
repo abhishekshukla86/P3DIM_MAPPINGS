@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "SRC_MaritalCodes.xlsx",
+				"fileName": "SRC_MaritalCodes.csv",
 				"container": "kamlendublob"
 			},
 			"columnDelimiter": ",",
