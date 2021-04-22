@@ -1,0 +1,32 @@
+{
+	"name": "SR_EthnicityCodes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SRC_EthnicityCode.csv",
+				"container": "kamlendublob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Ethnicity_Code_Desc                 ",
+				"type": "String"
+			},
+			{
+				"name": "Ethnicity_Code                 ",
+				"type": "String"
+			}
+		]
+	}
+}
