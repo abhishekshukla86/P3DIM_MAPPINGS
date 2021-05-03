@@ -1,0 +1,28 @@
+{
+	"name": "DF_DimAgeGroup",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SRC_DimAgeGroup",
+						"type": "DatasetReference"
+					},
+					"name": "SRDimAgeGroup"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TR_DimAgeGroup",
+						"type": "DatasetReference"
+					},
+					"name": "TRDimAgeGroup"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\tCode as string,\n\t\tDesc as string,\n\t\t{Starting Age} as string,\n\t\t{Ending Age} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tinferDriftedColumnTypes: true) ~> SRDimAgeGroup\nSRDimAgeGroup sink(input(\n\t\tAgeGroup_Key as integer,\n\t\tAgeGroup_Code as string,\n\t\tAgeGroup_Description as string,\n\t\tAgeGroup_Start as integer,\n\t\tAgeGroup_End as integer,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tAgeGroup_Code = Code,\n\t\tAgeGroup_Description = Desc,\n\t\tAgeGroup_Start = {Starting Age},\n\t\tAgeGroup_End = {Ending Age}\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimAgeGroup"
+		}
+	}
+}
