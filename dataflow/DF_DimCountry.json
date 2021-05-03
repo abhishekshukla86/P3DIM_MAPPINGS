@@ -1,0 +1,28 @@
+{
+	"name": "DF_DimCountry",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SRC_DimCountry",
+						"type": "DatasetReference"
+					},
+					"name": "SRDimCountry"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TR_DimCountry",
+						"type": "DatasetReference"
+					},
+					"name": "TRDimCountry"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\t{Country code} as string,\n\t\t{Country name} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRDimCountry\nSRDimCountry sink(input(\n\t\tCountry_Key as integer,\n\t\tCountry_Code as string,\n\t\tCountry_Name as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tCountry_Code = {Country code},\n\t\tCountry_Name = {Country name}\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimCountry"
+		}
+	}
+}
