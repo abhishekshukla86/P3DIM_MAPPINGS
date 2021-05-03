@@ -1,0 +1,36 @@
+{
+	"name": "SRC_DimState",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "State_Codes_USA.csv",
+				"container": "p3kamlendu"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "State_Code",
+				"type": "String"
+			},
+			{
+				"name": "State_Name",
+				"type": "String"
+			},
+			{
+				"name": "Country_Code",
+				"type": "String"
+			}
+		]
+	}
+}
