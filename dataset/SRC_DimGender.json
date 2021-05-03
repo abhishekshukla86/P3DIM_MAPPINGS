@@ -1,5 +1,5 @@
 {
-	"name": "DimGender",
+	"name": "SRC_DimGender",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
