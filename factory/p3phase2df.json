@@ -1,0 +1,9 @@
+{
+	"name": "p3phase2df",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8435004e-de46-4173-a38c-3738f57db584",
+		"tenantId": "40864666-d54d-42e7-9b9d-6ed498cf60aa"
+	}
+}
