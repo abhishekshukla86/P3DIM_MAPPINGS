@@ -1,0 +1,40 @@
+{
+	"name": "SRC_DimAgeGroup",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "AgeGroup.csv",
+				"container": "p3kamlendu"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Code",
+				"type": "String"
+			},
+			{
+				"name": "Desc",
+				"type": "String"
+			},
+			{
+				"name": "Starting Age",
+				"type": "String"
+			},
+			{
+				"name": "Ending Age",
+				"type": "String"
+			}
+		]
+	}
+}
