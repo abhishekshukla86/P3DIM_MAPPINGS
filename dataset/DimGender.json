@@ -1,0 +1,32 @@
+{
+	"name": "DimGender",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "gender.csv",
+				"container": "p3kamlendu"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Gender code",
+				"type": "String"
+			},
+			{
+				"name": "desc",
+				"type": "String"
+			}
+		]
+	}
+}
