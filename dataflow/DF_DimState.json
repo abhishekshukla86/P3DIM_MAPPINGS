@@ -1,0 +1,28 @@
+{
+	"name": "DF_DimState",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SRC_DimState",
+						"type": "DatasetReference"
+					},
+					"name": "SRDimState"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TR_DimState",
+						"type": "DatasetReference"
+					},
+					"name": "TRDimState"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\tState_Code as string,\n\t\tState_Name as string,\n\t\tCountry_Code as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRDimState\nSRDimState sink(input(\n\t\tState_Key as integer,\n\t\tState_Code as string,\n\t\tState_Name as string,\n\t\tCountry_Code as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tState_Code,\n\t\tState_Name,\n\t\tCountry_Code\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimState"
+		}
+	}
+}
