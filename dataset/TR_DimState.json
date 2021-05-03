@@ -1,0 +1,88 @@
+{
+	"name": "TR_DimState",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "State_Key",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "State_Code",
+				"type": "varchar"
+			},
+			{
+				"name": "State_Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Country_Code",
+				"type": "varchar"
+			},
+			{
+				"name": "CreationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UpdationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "RecordCreationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RecordUpdationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ph_varchar1",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_varchar2",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_Decimal1",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_Decimal2",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_datetime1",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ph_datetime2",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DimState"
+		}
+	}
+}
