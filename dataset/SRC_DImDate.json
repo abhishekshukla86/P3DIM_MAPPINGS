@@ -1,0 +1,164 @@
+{
+	"name": "SRC_DImDate",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "DimDate.csv",
+				"container": "p3kamlendu"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "DateNum",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "YearMonthNum",
+				"type": "String"
+			},
+			{
+				"name": "YearQuaterNumber",
+				"type": "String"
+			},
+			{
+				"name": "Calendar_Quarter",
+				"type": "String"
+			},
+			{
+				"name": "Month",
+				"type": "String"
+			},
+			{
+				"name": "MonthName",
+				"type": "String"
+			},
+			{
+				"name": "ShortMonthName",
+				"type": "String"
+			},
+			{
+				"name": "MonthOfQuarter",
+				"type": "String"
+			},
+			{
+				"name": "WeekNum",
+				"type": "String"
+			},
+			{
+				"name": "DayNumOfYear",
+				"type": "String"
+			},
+			{
+				"name": "DayOfQuarter",
+				"type": "String"
+			},
+			{
+				"name": "DayNumOfMonth",
+				"type": "String"
+			},
+			{
+				"name": "DayNumOfWeek",
+				"type": "String"
+			},
+			{
+				"name": "DayName",
+				"type": "String"
+			},
+			{
+				"name": "ShortDayName",
+				"type": "String"
+			},
+			{
+				"name": "WeekOfMonth",
+				"type": "String"
+			},
+			{
+				"name": "WeekOfQuarter",
+				"type": "String"
+			},
+			{
+				"name": "WeekOfYear",
+				"type": "String"
+			},
+			{
+				"name": "YearNumberMonthName",
+				"type": "String"
+			},
+			{
+				"name": "YearNumberMonthNameAbbr",
+				"type": "String"
+			},
+			{
+				"name": "YearNumber",
+				"type": "String"
+			},
+			{
+				"name": "DaysYearNumber",
+				"type": "String"
+			},
+			{
+				"name": "LeapYearIND",
+				"type": "String"
+			},
+			{
+				"name": "FirstDayOfWeekIND",
+				"type": "String"
+			},
+			{
+				"name": "WeekBeginDate",
+				"type": "String"
+			},
+			{
+				"name": "Week_End_Date",
+				"type": "String"
+			},
+			{
+				"name": "WeekEndIND",
+				"type": "String"
+			},
+			{
+				"name": "LastDayOfWeekIND",
+				"type": "String"
+			},
+			{
+				"name": "Quarter",
+				"type": "String"
+			},
+			{
+				"name": "DayNumOfQuarter",
+				"type": "String"
+			},
+			{
+				"name": "FirstDayOfYear",
+				"type": "String"
+			},
+			{
+				"name": "LastDayOfYear",
+				"type": "String"
+			},
+			{
+				"name": "IsHolidayUSA",
+				"type": "String"
+			},
+			{
+				"name": "HolidayUSA",
+				"type": "String"
+			}
+		]
+	}
+}
