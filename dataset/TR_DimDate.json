@@ -1,0 +1,228 @@
+{
+	"name": "TR_DimDate",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "DateNum",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Date",
+				"type": "date"
+			},
+			{
+				"name": "YearMonthNum",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "YearQuaterNumber",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Calendar_Quarter",
+				"type": "varchar"
+			},
+			{
+				"name": "Month",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MonthName",
+				"type": "varchar"
+			},
+			{
+				"name": "ShortMonthName",
+				"type": "varchar"
+			},
+			{
+				"name": "MonthOfQuarter",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "WeekNum",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DayNumOfYear",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DayOfQuarter",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DayNumOfMonth",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DayNumOfWeek",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DayName",
+				"type": "varchar"
+			},
+			{
+				"name": "ShortDayName",
+				"type": "varchar"
+			},
+			{
+				"name": "WeekOfMonth",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "WeekOfQuarter",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "WeekOfYear",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "YearNumberMonthName",
+				"type": "varchar"
+			},
+			{
+				"name": "YearNumberMonthNameAbbr",
+				"type": "varchar"
+			},
+			{
+				"name": "YearNumber",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DaysYearNumber",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "LeapYearIND",
+				"type": "char"
+			},
+			{
+				"name": "FirstDayOfWeekIND",
+				"type": "char"
+			},
+			{
+				"name": "WeekBeginDate",
+				"type": "date"
+			},
+			{
+				"name": "Week_End_Date",
+				"type": "date"
+			},
+			{
+				"name": "WeekEndIND",
+				"type": "char"
+			},
+			{
+				"name": "LastDayOfWeekIND",
+				"type": "char"
+			},
+			{
+				"name": "Quarter",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DayNumOfQuarter",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FirstDayOfYear",
+				"type": "date"
+			},
+			{
+				"name": "LastDayOfYear",
+				"type": "date"
+			},
+			{
+				"name": "IsHolidayUSA",
+				"type": "bit"
+			},
+			{
+				"name": "HolidayUSA",
+				"type": "varchar"
+			},
+			{
+				"name": "CreationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UpdationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "RecordCreationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RecordUpdationUserID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ph_varchar1",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_varchar2",
+				"type": "varchar"
+			},
+			{
+				"name": "ph_Decimal1",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_Decimal2",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ph_datetime1",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ph_datetime2",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DimDate"
+		}
+	}
+}
