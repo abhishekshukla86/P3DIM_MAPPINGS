@@ -1,0 +1,36 @@
+{
+	"name": "SRC_DimCounty",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "uscounty_file.csv",
+				"container": "p3kamlendu"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "county_code",
+				"type": "String"
+			},
+			{
+				"name": "county_name",
+				"type": "String"
+			},
+			{
+				"name": "state_code",
+				"type": "String"
+			}
+		]
+	}
+}
