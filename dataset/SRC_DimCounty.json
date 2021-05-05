@@ -30,6 +30,10 @@
 			{
 				"name": "state_code",
 				"type": "String"
+			},
+			{
+				"name": "CountryCode",
+				"type": "String"
 			}
 		]
 	}

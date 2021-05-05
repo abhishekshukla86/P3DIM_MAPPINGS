@@ -1,0 +1,28 @@
+{
+	"name": "DF_DimCounty",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SRC_DimCounty",
+						"type": "DatasetReference"
+					},
+					"name": "SRDimCounty"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "TR_DimCounty",
+						"type": "DatasetReference"
+					},
+					"name": "TRDimCounty"
+				}
+			],
+			"transformations": [],
+			"script": "source(output(\n\t\tcounty_code as string,\n\t\tcounty_name as string,\n\t\tstate_code as string,\n\t\tCountryCode as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tinferDriftedColumnTypes: true) ~> SRDimCounty\nSRDimCounty sink(input(\n\t\tCounty_Key as integer,\n\t\tCounty_Code as string,\n\t\tCounty_Name as string,\n\t\tState_Code as string,\n\t\tCountry_Code as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tCounty_Code = county_code,\n\t\tCounty_Name = county_name,\n\t\tState_Code = state_code,\n\t\tCountry_Code = CountryCode\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimCounty"
+		}
+	}
+}
