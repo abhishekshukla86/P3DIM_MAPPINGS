@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "uscounty_file.csv",
+				"fileName": "SRC_DimCounty.csv",
 				"container": "p3kamlendu"
 			},
 			"columnDelimiter": ",",
