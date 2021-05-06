@@ -8,13 +8,13 @@
 		"AzureBlobStorage_connectionString": {
 			"value": ""
 		},
-		"Sink_Azure_DIM_Mapping_DB_connectionString": {
-			"value": ""
-		},
 		"AzureBlobStorage1_connectionString": {
 			"value": ""
 		},
 		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"Sink_Azure_DIM_Mapping_DB_connectionString": {
 			"value": ""
 		},
 		"containerUri": {

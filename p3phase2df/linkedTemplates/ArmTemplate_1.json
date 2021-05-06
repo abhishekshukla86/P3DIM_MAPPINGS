@@ -118,6 +118,423 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DIMUB92RevenueCodes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "UB92 RevenueCodes.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Code",
+						"type": "String"
+					},
+					{
+						"name": "Description",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DImDate')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "DimDate.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "DateNum",
+						"type": "String"
+					},
+					{
+						"name": "Date",
+						"type": "String"
+					},
+					{
+						"name": "YearMonthNum",
+						"type": "String"
+					},
+					{
+						"name": "YearQuaterNumber",
+						"type": "String"
+					},
+					{
+						"name": "Calendar_Quarter",
+						"type": "String"
+					},
+					{
+						"name": "Month",
+						"type": "String"
+					},
+					{
+						"name": "MonthName",
+						"type": "String"
+					},
+					{
+						"name": "ShortMonthName",
+						"type": "String"
+					},
+					{
+						"name": "MonthOfQuarter",
+						"type": "String"
+					},
+					{
+						"name": "WeekNum",
+						"type": "String"
+					},
+					{
+						"name": "DayNumOfYear",
+						"type": "String"
+					},
+					{
+						"name": "DayOfQuarter",
+						"type": "String"
+					},
+					{
+						"name": "DayNumOfMonth",
+						"type": "String"
+					},
+					{
+						"name": "DayNumOfWeek",
+						"type": "String"
+					},
+					{
+						"name": "DayName",
+						"type": "String"
+					},
+					{
+						"name": "ShortDayName",
+						"type": "String"
+					},
+					{
+						"name": "WeekOfMonth",
+						"type": "String"
+					},
+					{
+						"name": "WeekOfQuarter",
+						"type": "String"
+					},
+					{
+						"name": "WeekOfYear",
+						"type": "String"
+					},
+					{
+						"name": "YearNumberMonthName",
+						"type": "String"
+					},
+					{
+						"name": "YearNumberMonthNameAbbr",
+						"type": "String"
+					},
+					{
+						"name": "YearNumber",
+						"type": "String"
+					},
+					{
+						"name": "DaysYearNumber",
+						"type": "String"
+					},
+					{
+						"name": "LeapYearIND",
+						"type": "String"
+					},
+					{
+						"name": "FirstDayOfWeekIND",
+						"type": "String"
+					},
+					{
+						"name": "WeekBeginDate",
+						"type": "String"
+					},
+					{
+						"name": "Week_End_Date",
+						"type": "String"
+					},
+					{
+						"name": "WeekEndIND",
+						"type": "String"
+					},
+					{
+						"name": "LastDayOfWeekIND",
+						"type": "String"
+					},
+					{
+						"name": "Quarter",
+						"type": "String"
+					},
+					{
+						"name": "DayNumOfQuarter",
+						"type": "String"
+					},
+					{
+						"name": "FirstDayOfYear",
+						"type": "String"
+					},
+					{
+						"name": "LastDayOfYear",
+						"type": "String"
+					},
+					{
+						"name": "IsHolidayUSA",
+						"type": "String"
+					},
+					{
+						"name": "HolidayUSA",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DimAgeGroup')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "AgeGroup.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Code",
+						"type": "String"
+					},
+					{
+						"name": "Desc",
+						"type": "String"
+					},
+					{
+						"name": "Starting Age",
+						"type": "String"
+					},
+					{
+						"name": "Ending Age",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DimCity')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "uscities.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "city",
+						"type": "String"
+					},
+					{
+						"name": "state_id",
+						"type": "String"
+					},
+					{
+						"name": "state_name",
+						"type": "String"
+					},
+					{
+						"name": "county_name",
+						"type": "String"
+					},
+					{
+						"name": "lat",
+						"type": "String"
+					},
+					{
+						"name": "lng",
+						"type": "String"
+					},
+					{
+						"name": "timezone",
+						"type": "String"
+					},
+					{
+						"name": "Country_Code",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DimCountry')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "country.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Country code",
+						"type": "String"
+					},
+					{
+						"name": "Country name",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DimCounty')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SRC_DimCounty.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "county_code",
+						"type": "String"
+					},
+					{
+						"name": "county_name",
+						"type": "String"
+					},
+					{
+						"name": "state_code",
+						"type": "String"
+					},
+					{
+						"name": "CountryCode",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DimGender')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "gender.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Gender code",
+						"type": "String"
+					},
+					{
+						"name": "desc",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SRC_DimICD10DiagnosisCodes')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -388,6 +805,108 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DimState')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "State_Codes_USA.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "State_Code",
+						"type": "String"
+					},
+					{
+						"name": "State_Name",
+						"type": "String"
+					},
+					{
+						"name": "Country_Code",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DimZip')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "uszips.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "zip",
+						"type": "String"
+					},
+					{
+						"name": "lat",
+						"type": "String"
+					},
+					{
+						"name": "lng",
+						"type": "String"
+					},
+					{
+						"name": "city",
+						"type": "String"
+					},
+					{
+						"name": "state_id",
+						"type": "String"
+					},
+					{
+						"name": "state_name",
+						"type": "String"
+					},
+					{
+						"name": "county_name",
+						"type": "String"
+					},
+					{
+						"name": "timezone",
+						"type": "String"
+					},
+					{
+						"name": "Country_Code",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SRC_Enrollment_contract')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -460,407 +979,6 @@
 					},
 					{
 						"name": "Description",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SRC_LineOfBusinessSubCategoryCode')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "SRC_LineOfBusinessSubCategoryCode.csv",
-						"container": "kamlendublob"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Code",
-						"type": "String"
-					},
-					{
-						"name": "Description",
-						"type": "String"
-					},
-					{
-						"name": "LOBCategory",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SRC_PlanBenefits')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "SRC_PlanBenefits.csv",
-						"container": "kamlendublob"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Plan_Benefit_ID",
-						"type": "String"
-					},
-					{
-						"name": "Plan_Benefit_Start_Date",
-						"type": "String"
-					},
-					{
-						"name": "Plan_Benefit_End_Date",
-						"type": "String"
-					},
-					{
-						"name": "Plan_Benefit_Description",
-						"type": "String"
-					},
-					{
-						"name": "Line_Of_Business                  ",
-						"type": "String"
-					},
-					{
-						"name": "Plan_Product_Code                 ",
-						"type": "String"
-					},
-					{
-						"name": "Benefit_Plan_Type_Code",
-						"type": "String"
-					},
-					{
-						"name": "Population_Category_Code",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SRC_PopulationCategoryCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "SRC_PopulationCategoryCodes.csv",
-						"container": "kamlendublob"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Code",
-						"type": "String"
-					},
-					{
-						"name": "Description",
-						"type": "String"
-					},
-					{
-						"name": "LOB Sub-Category",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SRC_SpecialityTaxonomyCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "SRC_SpecialityTaxonomyCodes_CSV3.csv",
-						"container": "dimmapping"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Speciality_KEY",
-						"type": "String"
-					},
-					{
-						"name": "CMS SPECIALTY CODE",
-						"type": "String"
-					},
-					{
-						"name": "CMS SPECIALTY DESCRIPTION",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY CODE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY DESCRIPTION TYPE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY DESCRIPTION CLASSIFICATION and SPECIALIZATION",
-						"type": "String"
-					},
-					{
-						"name": "RBI DATA SPECIALITY CODE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TYPE",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SRC_SpecialityTaxonomyCodes_Excel')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Excel",
-				"typeProperties": {
-					"sheetName": "Sheet1",
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "SRC_SpecialityTaxonomyCodes_EXCEL.xlsx",
-						"container": "dimmapping"
-					},
-					"firstRowAsHeader": true
-				},
-				"schema": [
-					{
-						"name": "Speciality_KEY",
-						"type": "String"
-					},
-					{
-						"name": "CMS SPECIALTY CODE",
-						"type": "String"
-					},
-					{
-						"name": "CMS SPECIALTY DESCRIPTION",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY CODE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY DESCRIPTION TYPE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TAXONOMY DESCRIPTION CLASSIFICATION and SPECIALIZATION",
-						"type": "String"
-					},
-					{
-						"name": "RBI DATA SPECIALITY CODE",
-						"type": "String"
-					},
-					{
-						"name": "PROVIDER TYPE",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SR_CostSharingReductionCode')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "SRC_CostSharingReductionCode.csv",
-						"container": "kamlendublob"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Cost_Sharing_Reduction_Code",
-						"type": "String"
-					},
-					{
-						"name": "Cost_Sharing_Reduction_Code_Desc",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SR_CoverageTier')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "SRC_CoverageTier.csv",
-						"container": "kamlendublob"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Coverage_Tier",
-						"type": "String"
-					},
-					{
-						"name": "Coverage_Tier_Desc",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SR_EthnicityCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "SRC_EthnicityCode.csv",
-						"container": "kamlendublob"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Ethnicity_Code_Desc                 ",
-						"type": "String"
-					},
-					{
-						"name": "Ethnicity_Code                 ",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SR_MDCCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "MDC_Codes.csv",
-						"container": "kamlendublob"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "MDC_Code",
-						"type": "String"
-					},
-					{
-						"name": "Description",
-						"type": "String"
-					},
-					{
-						"name": "Start DRG_Code",
-						"type": "String"
-					},
-					{
-						"name": "END_DRG_Code",
 						"type": "String"
 					}
 				]

@@ -1,0 +1,1133 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "p3phase2df"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/PiplineDateCounty')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "DF_DimCounty",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "DF_DimCounty",
+								"type": "DataFlowReference"
+							},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/DF_DimCounty')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DIMUB92RevenueCodes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "UB92 RevenueCodes.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Code",
+						"type": "String"
+					},
+					{
+						"name": "Description",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DImDate')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "DimDate.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "DateNum",
+						"type": "String"
+					},
+					{
+						"name": "Date",
+						"type": "String"
+					},
+					{
+						"name": "YearMonthNum",
+						"type": "String"
+					},
+					{
+						"name": "YearQuaterNumber",
+						"type": "String"
+					},
+					{
+						"name": "Calendar_Quarter",
+						"type": "String"
+					},
+					{
+						"name": "Month",
+						"type": "String"
+					},
+					{
+						"name": "MonthName",
+						"type": "String"
+					},
+					{
+						"name": "ShortMonthName",
+						"type": "String"
+					},
+					{
+						"name": "MonthOfQuarter",
+						"type": "String"
+					},
+					{
+						"name": "WeekNum",
+						"type": "String"
+					},
+					{
+						"name": "DayNumOfYear",
+						"type": "String"
+					},
+					{
+						"name": "DayOfQuarter",
+						"type": "String"
+					},
+					{
+						"name": "DayNumOfMonth",
+						"type": "String"
+					},
+					{
+						"name": "DayNumOfWeek",
+						"type": "String"
+					},
+					{
+						"name": "DayName",
+						"type": "String"
+					},
+					{
+						"name": "ShortDayName",
+						"type": "String"
+					},
+					{
+						"name": "WeekOfMonth",
+						"type": "String"
+					},
+					{
+						"name": "WeekOfQuarter",
+						"type": "String"
+					},
+					{
+						"name": "WeekOfYear",
+						"type": "String"
+					},
+					{
+						"name": "YearNumberMonthName",
+						"type": "String"
+					},
+					{
+						"name": "YearNumberMonthNameAbbr",
+						"type": "String"
+					},
+					{
+						"name": "YearNumber",
+						"type": "String"
+					},
+					{
+						"name": "DaysYearNumber",
+						"type": "String"
+					},
+					{
+						"name": "LeapYearIND",
+						"type": "String"
+					},
+					{
+						"name": "FirstDayOfWeekIND",
+						"type": "String"
+					},
+					{
+						"name": "WeekBeginDate",
+						"type": "String"
+					},
+					{
+						"name": "Week_End_Date",
+						"type": "String"
+					},
+					{
+						"name": "WeekEndIND",
+						"type": "String"
+					},
+					{
+						"name": "LastDayOfWeekIND",
+						"type": "String"
+					},
+					{
+						"name": "Quarter",
+						"type": "String"
+					},
+					{
+						"name": "DayNumOfQuarter",
+						"type": "String"
+					},
+					{
+						"name": "FirstDayOfYear",
+						"type": "String"
+					},
+					{
+						"name": "LastDayOfYear",
+						"type": "String"
+					},
+					{
+						"name": "IsHolidayUSA",
+						"type": "String"
+					},
+					{
+						"name": "HolidayUSA",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DimCity')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "uscities.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "city",
+						"type": "String"
+					},
+					{
+						"name": "state_id",
+						"type": "String"
+					},
+					{
+						"name": "state_name",
+						"type": "String"
+					},
+					{
+						"name": "county_name",
+						"type": "String"
+					},
+					{
+						"name": "lat",
+						"type": "String"
+					},
+					{
+						"name": "lng",
+						"type": "String"
+					},
+					{
+						"name": "timezone",
+						"type": "String"
+					},
+					{
+						"name": "Country_Code",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DimCounty')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SRC_DimCounty.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "county_code",
+						"type": "String"
+					},
+					{
+						"name": "county_name",
+						"type": "String"
+					},
+					{
+						"name": "state_code",
+						"type": "String"
+					},
+					{
+						"name": "CountryCode",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SRC_DimZip')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "uszips.csv",
+						"container": "p3kamlendu"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "zip",
+						"type": "String"
+					},
+					{
+						"name": "lat",
+						"type": "String"
+					},
+					{
+						"name": "lng",
+						"type": "String"
+					},
+					{
+						"name": "city",
+						"type": "String"
+					},
+					{
+						"name": "state_id",
+						"type": "String"
+					},
+					{
+						"name": "state_name",
+						"type": "String"
+					},
+					{
+						"name": "county_name",
+						"type": "String"
+					},
+					{
+						"name": "timezone",
+						"type": "String"
+					},
+					{
+						"name": "Country_Code",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_DimCity')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "City_Key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "City_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "City_Name",
+						"type": "varchar"
+					},
+					{
+						"name": "County_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "State_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Country_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimCity"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_DimCounty')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "County_Key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "County_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "County_Name",
+						"type": "varchar"
+					},
+					{
+						"name": "State_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Country_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimCounty"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_DimDate')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "DateNum",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Date",
+						"type": "date"
+					},
+					{
+						"name": "YearMonthNum",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "YearQuaterNumber",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Calendar_Quarter",
+						"type": "varchar"
+					},
+					{
+						"name": "Month",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "MonthName",
+						"type": "varchar"
+					},
+					{
+						"name": "ShortMonthName",
+						"type": "varchar"
+					},
+					{
+						"name": "MonthOfQuarter",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "WeekNum",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayNumOfYear",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayOfQuarter",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayNumOfMonth",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayNumOfWeek",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayName",
+						"type": "varchar"
+					},
+					{
+						"name": "ShortDayName",
+						"type": "varchar"
+					},
+					{
+						"name": "WeekOfMonth",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "WeekOfQuarter",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "WeekOfYear",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "YearNumberMonthName",
+						"type": "varchar"
+					},
+					{
+						"name": "YearNumberMonthNameAbbr",
+						"type": "varchar"
+					},
+					{
+						"name": "YearNumber",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DaysYearNumber",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "LeapYearIND",
+						"type": "char"
+					},
+					{
+						"name": "FirstDayOfWeekIND",
+						"type": "char"
+					},
+					{
+						"name": "WeekBeginDate",
+						"type": "date"
+					},
+					{
+						"name": "Week_End_Date",
+						"type": "date"
+					},
+					{
+						"name": "WeekEndIND",
+						"type": "char"
+					},
+					{
+						"name": "LastDayOfWeekIND",
+						"type": "char"
+					},
+					{
+						"name": "Quarter",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayNumOfQuarter",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "FirstDayOfYear",
+						"type": "date"
+					},
+					{
+						"name": "LastDayOfYear",
+						"type": "date"
+					},
+					{
+						"name": "IsHolidayUSA",
+						"type": "bit"
+					},
+					{
+						"name": "HolidayUSA",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimDate"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_DimUB92RevenueCode')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "RevenueCode_Key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Revenue_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Revenue_Code_Desc",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimUB92RevenueCodes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_DimZip')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Zip_Key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Zip_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "City_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "County_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "State_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Country_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimZip"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DF_DIMUB92RevenueCodes')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "SRC_DIMUB92RevenueCodes",
+								"type": "DatasetReference"
+							},
+							"name": "SRDIMUB92RevenueCodes"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "TR_DimUB92RevenueCode",
+								"type": "DatasetReference"
+							},
+							"name": "TRDIMUB92RevenueCodes"
+						}
+					],
+					"transformations": [],
+					"script": "source(output(\n\t\tCode as integer,\n\t\tDescription as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRDIMUB92RevenueCodes\nSRDIMUB92RevenueCodes sink(input(\n\t\tRevenueCode_Key as integer,\n\t\tRevenue_Code as string,\n\t\tRevenue_Code_Desc as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tRevenue_Code = Code,\n\t\tRevenue_Code_Desc = Description\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDIMUB92RevenueCodes"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SRC_DIMUB92RevenueCodes')]",
+				"[concat(variables('factoryId'), '/datasets/TR_DimUB92RevenueCode')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DF_DimCounty')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "SRC_DimCounty",
+								"type": "DatasetReference"
+							},
+							"name": "SRDimCounty"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "TR_DimCounty",
+								"type": "DatasetReference"
+							},
+							"name": "TRDimCounty"
+						}
+					],
+					"transformations": [],
+					"script": "source(output(\n\t\tcounty_code as string,\n\t\tcounty_name as string,\n\t\tstate_code as string,\n\t\tCountryCode as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tinferDriftedColumnTypes: true) ~> SRDimCounty\nSRDimCounty sink(input(\n\t\tCounty_Key as integer,\n\t\tCounty_Code as string,\n\t\tCounty_Name as string,\n\t\tState_Code as string,\n\t\tCountry_Code as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tCounty_Code = county_code,\n\t\tCounty_Name = county_name,\n\t\tState_Code = state_code,\n\t\tCountry_Code = CountryCode\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimCounty"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SRC_DimCounty')]",
+				"[concat(variables('factoryId'), '/datasets/TR_DimCounty')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DF_DimDate')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "SRC_DImDate",
+								"type": "DatasetReference"
+							},
+							"name": "SRDimDate"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "TR_DimDate",
+								"type": "DatasetReference"
+							},
+							"name": "TRDimDate"
+						}
+					],
+					"transformations": [],
+					"script": "source(output(\n\t\tDateNum as integer,\n\t\tDate as timestamp 'dd-MM-yyyy',\n\t\tYearMonthNum as integer,\n\t\tYearQuaterNumber as integer,\n\t\tCalendar_Quarter as string,\n\t\tMonth as string,\n\t\tMonthName as string,\n\t\tShortMonthName as string,\n\t\tMonthOfQuarter as integer,\n\t\tWeekNum as integer,\n\t\tDayNumOfYear as integer,\n\t\tDayOfQuarter as integer,\n\t\tDayNumOfMonth as integer,\n\t\tDayNumOfWeek as integer,\n\t\tDayName as string,\n\t\tShortDayName as string,\n\t\tWeekOfMonth as integer,\n\t\tWeekOfQuarter as integer,\n\t\tWeekOfYear as integer,\n\t\tYearNumberMonthName as string,\n\t\tYearNumberMonthNameAbbr as string,\n\t\tYearNumber as integer,\n\t\tDaysYearNumber as integer,\n\t\tLeapYearIND as string,\n\t\tFirstDayOfWeekIND as string,\n\t\tWeekBeginDate as date 'dd-MM-yyyy',\n\t\tWeek_End_Date as date 'dd-MM-yyyy',\n\t\tWeekEndIND as string,\n\t\tLastDayOfWeekIND as string,\n\t\tQuarter as integer,\n\t\tDayNumOfQuarter as integer,\n\t\tFirstDayOfYear as date 'dd-MM-yyyy',\n\t\tLastDayOfYear as date 'dd-MM-yyyy',\n\t\tIsHolidayUSA as string,\n\t\tHolidayUSA as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SRDimDate\nSRDimDate sink(input(\n\t\tDateNum as integer,\n\t\tDate as date,\n\t\tYearMonthNum as integer,\n\t\tYearQuaterNumber as integer,\n\t\tCalendar_Quarter as string,\n\t\tMonth as integer,\n\t\tMonthName as string,\n\t\tShortMonthName as string,\n\t\tMonthOfQuarter as integer,\n\t\tWeekNum as integer,\n\t\tDayNumOfYear as integer,\n\t\tDayOfQuarter as integer,\n\t\tDayNumOfMonth as integer,\n\t\tDayNumOfWeek as integer,\n\t\tDayName as string,\n\t\tShortDayName as string,\n\t\tWeekOfMonth as integer,\n\t\tWeekOfQuarter as integer,\n\t\tWeekOfYear as integer,\n\t\tYearNumberMonthName as string,\n\t\tYearNumberMonthNameAbbr as string,\n\t\tYearNumber as integer,\n\t\tDaysYearNumber as integer,\n\t\tLeapYearIND as string,\n\t\tFirstDayOfWeekIND as string,\n\t\tWeekBeginDate as date,\n\t\tWeek_End_Date as date,\n\t\tWeekEndIND as string,\n\t\tLastDayOfWeekIND as string,\n\t\tQuarter as integer,\n\t\tDayNumOfQuarter as integer,\n\t\tFirstDayOfYear as date,\n\t\tLastDayOfYear as date,\n\t\tIsHolidayUSA as boolean,\n\t\tHolidayUSA as string,\n\t\tCreationDate as timestamp,\n\t\tUpdationDate as timestamp,\n\t\tRecordCreationUserID as integer,\n\t\tRecordUpdationUserID as integer,\n\t\tph_varchar1 as string,\n\t\tph_varchar2 as string,\n\t\tph_Decimal1 as decimal(10,2),\n\t\tph_Decimal2 as decimal(10,2),\n\t\tph_datetime1 as timestamp,\n\t\tph_datetime2 as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tDate,\n\t\tYearMonthNum,\n\t\tYearQuaterNumber,\n\t\tCalendar_Quarter,\n\t\tMonth,\n\t\tMonthName,\n\t\tShortMonthName,\n\t\tMonthOfQuarter,\n\t\tWeekNum,\n\t\tDayNumOfYear,\n\t\tDayOfQuarter,\n\t\tDayNumOfMonth,\n\t\tDayNumOfWeek,\n\t\tDayName,\n\t\tShortDayName,\n\t\tWeekOfMonth,\n\t\tWeekOfQuarter,\n\t\tWeekOfYear,\n\t\tYearNumberMonthName,\n\t\tYearNumberMonthNameAbbr,\n\t\tYearNumber,\n\t\tDaysYearNumber,\n\t\tLeapYearIND,\n\t\tFirstDayOfWeekIND,\n\t\tWeekBeginDate,\n\t\tWeek_End_Date,\n\t\tWeekEndIND,\n\t\tLastDayOfWeekIND,\n\t\tQuarter,\n\t\tDayNumOfQuarter,\n\t\tFirstDayOfYear,\n\t\tLastDayOfYear,\n\t\tIsHolidayUSA,\n\t\tHolidayUSA\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> TRDimDate"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SRC_DImDate')]",
+				"[concat(variables('factoryId'), '/datasets/TR_DimDate')]"
+			]
+		}
+	]
+}

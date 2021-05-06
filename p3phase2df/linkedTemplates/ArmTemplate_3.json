@@ -13,6 +13,1030 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/Sink_DimPlan')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Plan_key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Plan_ID",
+						"type": "varchar"
+					},
+					{
+						"name": "Plan_Start_Date",
+						"type": "date"
+					},
+					{
+						"name": "Plan_End_Date",
+						"type": "date"
+					},
+					{
+						"name": "Plan_Name_Description",
+						"type": "varchar"
+					},
+					{
+						"name": "LineofBusinessCodeCatCode",
+						"type": "varchar"
+					},
+					{
+						"name": "Plan_Product_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "market_Type",
+						"type": "varchar"
+					},
+					{
+						"name": "Grandfathered_Plan_Flag",
+						"type": "char"
+					},
+					{
+						"name": "Metal_level",
+						"type": "varchar"
+					},
+					{
+						"name": "Acturial_Value",
+						"type": "varchar"
+					},
+					{
+						"name": "Issuer_State",
+						"type": "varchar"
+					},
+					{
+						"name": "Issuer_ID",
+						"type": "varchar"
+					},
+					{
+						"name": "Plan_On_Off_Exchange_Indicator",
+						"type": "char"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimPlan"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Sink_DimProduct')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ProductCode_key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Product_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Product_Code_Desc",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimProduct"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Sink_DimProviderGroup')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ProviderGroup_KEY",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Provider_Group_ID",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Name",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Status",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Address_1",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Address_2",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Zip_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_City_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_County_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_State_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Country_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Contact",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Phone",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Fax",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Email",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Group_Date",
+						"type": "date"
+					},
+					{
+						"name": "Provider_Group_End_Date",
+						"type": "date"
+					},
+					{
+						"name": "Provider_Group_Type",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Group_Function_Indicator",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DIMProviderGroup"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Sink_DimProviderType')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ProviderType_KEY",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Provider_Type_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Type_Description",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimProviderType"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Sink_HCPCS_Azure')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "HCPCSCode_KEY",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "HCPCS_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "HCPCSCode_Desc",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimHCPCSCode"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Sink_MDCCodes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "MDC_Code_KEY",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "MDC_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "MDC_Code_Desc",
+						"type": "varchar"
+					},
+					{
+						"name": "Start_DRG_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "End_DRG_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimMDCCodes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Sink_SpecialityTaxonomyCodes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Specialty_ID_key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Specialty_ID",
+						"type": "varchar"
+					},
+					{
+						"name": "Specialty_Description",
+						"type": "varchar"
+					},
+					{
+						"name": "Taxonomy_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Taxonomy_Desc_Type",
+						"type": "varchar"
+					},
+					{
+						"name": "Taxonomy_Description",
+						"type": "varchar"
+					},
+					{
+						"name": "Provider_Type_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimSpecialtyCodes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Sink_icd10DiagnosisCodes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ICD10DiagnosisCode_Key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ICD10Diagnosis_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "ICD10DiagnosisCode_Desc",
+						"type": "varchar"
+					},
+					{
+						"name": "ICD10DiagnosisGroup_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimICD10DiagnosisCodes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_DIMMDC_Codes')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Sink_Azure_DIM_Mapping_DB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "MDC_Code_KEY",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "MDC_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "MDC_Code_Desc",
+						"type": "varchar"
+					},
+					{
+						"name": "Start_DRG_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "End_DRG_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimMDCCodes"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_DimAgeGroup')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "AgeGroup_Key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "AgeGroup_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "AgeGroup_Description",
+						"type": "varchar"
+					},
+					{
+						"name": "AgeGroup_Start",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "AgeGroup_End",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimAgeGroup"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/TR_DimBenefitPlanType')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -95,6 +1119,105 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "DimBenefitPlanType"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_DimCity')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "City_Key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "City_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "City_Name",
+						"type": "varchar"
+					},
+					{
+						"name": "County_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "State_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Country_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimCity"
 				}
 			},
 			"dependsOn": []
@@ -187,6 +1310,188 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/TR_DimCountry')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Country_Key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Country_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Country_Name",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimCountry"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_DimCounty')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "County_Key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "County_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "County_Name",
+						"type": "varchar"
+					},
+					{
+						"name": "State_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "Country_Code",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimCounty"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/TR_DimCoverageTier')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -269,6 +1574,237 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "DimCoverageTier"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_DimDate')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "DateNum",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Date",
+						"type": "date"
+					},
+					{
+						"name": "YearMonthNum",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "YearQuaterNumber",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Calendar_Quarter",
+						"type": "varchar"
+					},
+					{
+						"name": "Month",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "MonthName",
+						"type": "varchar"
+					},
+					{
+						"name": "ShortMonthName",
+						"type": "varchar"
+					},
+					{
+						"name": "MonthOfQuarter",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "WeekNum",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayNumOfYear",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayOfQuarter",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayNumOfMonth",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayNumOfWeek",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayName",
+						"type": "varchar"
+					},
+					{
+						"name": "ShortDayName",
+						"type": "varchar"
+					},
+					{
+						"name": "WeekOfMonth",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "WeekOfQuarter",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "WeekOfYear",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "YearNumberMonthName",
+						"type": "varchar"
+					},
+					{
+						"name": "YearNumberMonthNameAbbr",
+						"type": "varchar"
+					},
+					{
+						"name": "YearNumber",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DaysYearNumber",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "LeapYearIND",
+						"type": "char"
+					},
+					{
+						"name": "FirstDayOfWeekIND",
+						"type": "char"
+					},
+					{
+						"name": "WeekBeginDate",
+						"type": "date"
+					},
+					{
+						"name": "Week_End_Date",
+						"type": "date"
+					},
+					{
+						"name": "WeekEndIND",
+						"type": "char"
+					},
+					{
+						"name": "LastDayOfWeekIND",
+						"type": "char"
+					},
+					{
+						"name": "Quarter",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "DayNumOfQuarter",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "FirstDayOfYear",
+						"type": "date"
+					},
+					{
+						"name": "LastDayOfYear",
+						"type": "date"
+					},
+					{
+						"name": "IsHolidayUSA",
+						"type": "bit"
+					},
+					{
+						"name": "HolidayUSA",
+						"type": "varchar"
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "UpdationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "RecordCreationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RecordUpdationUserID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ph_varchar1",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_varchar2",
+						"type": "varchar"
+					},
+					{
+						"name": "ph_Decimal1",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_Decimal2",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ph_datetime1",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ph_datetime2",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DimDate"
 				}
 			},
 			"dependsOn": []
@@ -464,890 +2000,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/TR_DimLineOfBusinessCategoryCode')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "LineofBusinessCodeCatCode_Key",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "LineofBusinessCodeCatCode",
-						"type": "varchar"
-					},
-					{
-						"name": "LineofBusinessCodeCatDesc",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimLineofBusinessCodeCatCode"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_DimLineofBusinessCodeSubCatCode')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "LineofBusinessCodeSubCatCode_Key",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "LineofBusinessCodeSubCatCode",
-						"type": "varchar"
-					},
-					{
-						"name": "LineofBusinessCodeSubCatCodeDesc",
-						"type": "varchar"
-					},
-					{
-						"name": "LineofBusinessCodeCatCode",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimLineofBusinessCodeSubCatCode"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_DimMaritalCodes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "MaritalCode_KEY",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "Marital_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "MaritalCode_Desc",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimMaritalCodes"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_DimMemberContactPref')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "MemberContactPref_KEY",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "MemberContactPref_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "MemberContactPref_Desc",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimMemberContactPref"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_DimPlanBenefits')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "PlanBenefits_Key",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "Plan_Benefit_ID",
-						"type": "varchar"
-					},
-					{
-						"name": "Plan_Benefit_Start_Date",
-						"type": "date"
-					},
-					{
-						"name": "Plan_Benefit_End_Date",
-						"type": "date"
-					},
-					{
-						"name": "Plan_Benefit_Desp",
-						"type": "varchar"
-					},
-					{
-						"name": "LineofBusinessCodeCatCode",
-						"type": "varchar"
-					},
-					{
-						"name": "Plan_Product_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "BenefitPlanTypeCode",
-						"type": "varchar"
-					},
-					{
-						"name": "PopulationCatCode",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimPlanBenefits"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_DimPopulationCategoryCode')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "PopulationCategoryCode_Key",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "PopulationCategoryCode",
-						"type": "varchar"
-					},
-					{
-						"name": "PopulationCategoryCodeDesc",
-						"type": "varchar"
-					},
-					{
-						"name": "LineofBusinessCodeCatCode",
-						"type": "varchar"
-					},
-					{
-						"name": "LineofBusinessCodeSubCatCode",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimPopulationCategoryCode"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_DimRaceType')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "RaceType_KEY",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "Race_Type",
-						"type": "varchar"
-					},
-					{
-						"name": "RaceType_Desc",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimRaceType"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_DimSourceSystem')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Sink_Azure_DIM_Mapping_DB",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "SourceSystem_KEY",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "SourceSystem_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "SourceSystem_Desc",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimSourceSystem"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SRC_DimGender')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "gender.csv",
-						"container": "p3kamlendu"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Gender code",
-						"type": "String"
-					},
-					{
-						"name": "desc",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SRC_DimAgeGroup')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "AgeGroup.csv",
-						"container": "p3kamlendu"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Code",
-						"type": "String"
-					},
-					{
-						"name": "Desc",
-						"type": "String"
-					},
-					{
-						"name": "Starting Age",
-						"type": "String"
-					},
-					{
-						"name": "Ending Age",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SRC_DimState')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "State_Codes_USA.csv",
-						"container": "p3kamlendu"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "State_Code",
-						"type": "String"
-					},
-					{
-						"name": "State_Name",
-						"type": "String"
-					},
-					{
-						"name": "Country_Code",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SRC_DimCountry')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "country.csv",
-						"container": "p3kamlendu"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Country code",
-						"type": "String"
-					},
-					{
-						"name": "Country name",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/TR_DimGender')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1430,194 +2082,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "DimGender"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_DimAgeGroup')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabase1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "AgeGroup_Key",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "AgeGroup_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "AgeGroup_Description",
-						"type": "varchar"
-					},
-					{
-						"name": "AgeGroup_Start",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "AgeGroup_End",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimAgeGroup"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_DimState')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabase1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "State_Key",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "State_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "State_Name",
-						"type": "varchar"
-					},
-					{
-						"name": "Country_Code",
-						"type": "varchar"
-					},
-					{
-						"name": "CreationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "UpdationDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "RecordCreationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "RecordUpdationUserID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "ph_varchar1",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_varchar2",
-						"type": "varchar"
-					},
-					{
-						"name": "ph_Decimal1",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_Decimal2",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "ph_datetime1",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "ph_datetime2",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "DimState"
 				}
 			},
 			"dependsOn": []

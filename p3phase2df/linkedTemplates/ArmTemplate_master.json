@@ -11,10 +11,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage'"
 		},
-		"Sink_Azure_DIM_Mapping_DB_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'Sink_Azure_DIM_Mapping_DB'"
-		},
 		"AzureBlobStorage1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
@@ -22,6 +18,10 @@
 		"AzureSqlDatabase1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"Sink_Azure_DIM_Mapping_DB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Sink_Azure_DIM_Mapping_DB'"
 		},
 		"containerUri": {
 			"type": "string",
@@ -53,14 +53,14 @@
 					"AzureBlobStorage_connectionString": {
 						"value": "[parameters('AzureBlobStorage_connectionString')]"
 					},
-					"Sink_Azure_DIM_Mapping_DB_connectionString": {
-						"value": "[parameters('Sink_Azure_DIM_Mapping_DB_connectionString')]"
-					},
 					"AzureBlobStorage1_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
 					"AzureSqlDatabase1_connectionString": {
 						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"Sink_Azure_DIM_Mapping_DB_connectionString": {
+						"value": "[parameters('Sink_Azure_DIM_Mapping_DB_connectionString')]"
 					}
 				}
 			},
