@@ -1,0 +1,28 @@
+{
+	"name": "integrationRuntime2",
+	"properties": {
+		"type": "Managed",
+		"description": "SSISDemo1",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "East US 2",
+				"nodeSize": "Standard_D2_v2",
+				"numberOfNodes": 2,
+				"maxParallelExecutionsPerNode": 2
+			},
+			"ssisProperties": {
+				"edition": "Standard",
+				"licenseType": "BasePrice",
+				"packageStores": [
+					{
+						"name": "azuressis",
+						"packageStoreLinkedService": {
+							"referenceName": "SSISDemo1",
+							"type": "LinkedServiceReference"
+						}
+					}
+				]
+			}
+		}
+	}
+}
