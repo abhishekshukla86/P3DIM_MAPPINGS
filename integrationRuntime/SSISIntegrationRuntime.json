@@ -1,0 +1,31 @@
+{
+	"name": "SSISIntegrationRuntime",
+	"properties": {
+		"type": "Managed",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "East US 2",
+				"nodeSize": "Standard_D1_v2",
+				"numberOfNodes": 1,
+				"maxParallelExecutionsPerNode": 1,
+				"vNetProperties": {
+					"vNetId": "/subscriptions/75e5dabd-f233-4edf-9a33-2856e1ee40b7/resourceGroups/SSIS/providers/Microsoft.Network/virtualNetworks/SSIS",
+					"subnet": "SSIS"
+				}
+			},
+			"ssisProperties": {
+				"catalogInfo": {
+					"catalogServerEndpoint": "p3phase2dbserver.database.windows.net",
+					"catalogAdminUserName": "sqladmin",
+					"catalogAdminPassword": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"catalogPricingTier": "S1"
+				},
+				"edition": "Standard",
+				"licenseType": "BasePrice"
+			}
+		}
+	}
+}
