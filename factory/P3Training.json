@@ -1,0 +1,9 @@
+{
+	"name": "P3Training",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f693922e-a39a-4d56-99d9-af08adfece8d",
+		"tenantId": "c683c79e-76c0-4a22-82d4-3b379d6b3335"
+	}
+}
